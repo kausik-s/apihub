@@ -121,6 +121,14 @@ public class ApiDocsStorageService {
     			currentUserObjList.add(objUser);
     		}
     		
+    		List<User> list2=new ArrayList<User>(apiObj.getUsers());
+    		for(int p=0;p<list2.size();p++)
+    		{
+    			User objUser=list2.get(p);
+    			objUser.getApiDocs().remove(apiObj);
+    			
+    			
+    		}
     		Set<User> objuser1=apiObj.getUsers();
     		List<User> list=new ArrayList<User>(apiObj.getUsers());
     		apiObj.getUsers().clear();
@@ -129,11 +137,14 @@ public class ApiDocsStorageService {
     		
     		List<User> list1=new ArrayList<User>(apiObj.getUsers());
     		
-    		List<User> list2=new ArrayList<User>(apiObj.getUsers());
-    		for(int k=0;k<list2.size();k++)
+    		
+    		
+    		
+    		
+    		for(int k=0;k<currentUserObjList.size();k++)
     		{
-    			User objUser=list2.get(k);
-    			//objUser.getApiDocs().clear();
+    			User objUser=currentUserObjList.get(k);
+    			//objUser.getApiDocs().clear();//TEMP UNCOMMENTED
     			objUser.getApiDocs().add(apiObj);
     			
     		}
